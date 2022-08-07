@@ -1,0 +1,148 @@
+*{
+    margin: auto;
+    padding: 0px;
+}
+
+#logo {
+    padding-left: 15px;
+    color:rgb(19, 103, 160);
+    transform: translateY(-440px);
+    width : 120px;
+    height : 100px;
+    
+} 
+
+.top {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    z-index: 1;
+}
+
+#search-form {
+    text-align: center;
+    transform: translateY(-60px);
+}
+
+#search-bar {
+    width : 30%;
+    height: 40px;
+    color: #616161;
+    background: #f7f7f7;
+    border-radius: 4px;
+    font-size: 16px;
+    border: 1px solid #d4d4d4;
+    padding: 0px 10px;
+}
+
+#photo-div-container {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+#credit{
+    transform: translateY(-30px);
+    color: white;
+    z-index: 0;
+    text-shadow: 1px 1px 2px black, 0 0 10px rgb(7, 7, 7), 0 0 2px rgb(0, 0, 0);
+    font-size:medium;
+}
+
+
+.hero-image {
+    background-image: url("bg-img.jpg");
+    background-color: #cccccc;
+    height: 450px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateY(-50px);
+    background-position-y: 65% ;
+  }
+  
+  .hero-text {
+    width : 40%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+}
+
+.hero-text h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.photo-div {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+
+}
+
+.photo-div img {
+    border-radius: 5px;
+}
+
+.photo-div h4 {
+    margin-top: 0px;
+}
+
+img, .credit {
+    max-width: 90%;
+}
+
+@media (max-width: 810px) {
+    *{
+        max-height: fit-content;
+
+    }
+.photo-div {
+      flex: 50%;
+    }
+
+    .hero-text h1 {
+        font-size:x-large;
+    }
+    #search-bar {
+        width : 95%;
+        height: 40px;
+    }
+    #credit {
+        font-size: small;
+    }
+  }
+
+  @media (max-width: 375px) {
+    *{
+        max-height: fit-content;
+
+    }
+
+    #logo {
+        width : 80px;
+        height : 60px;  
+    } 
+.photo-div {
+      flex: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: large;
+    }
+    #search-bar {
+        width : 90%;
+        height: 30px;
+    }
+
+    #credit {
+        font-size: smaller;
+    }
+  }

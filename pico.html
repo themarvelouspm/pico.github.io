@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pico - Free stock photos</title>
+    <link rel="icon" type="image/x-icon" href="pico-logo.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>The best free stock photos, royalty free images & videos shared by creators.</h1>
+        </div>
+    </div>
+    <div class="top">
+    <a href="pico.html"><img id="logo" src="pico-logo.jpg"></a>
+    <form id="search-form">
+        <input id="search-bar" placeholder="Search for free photos" type="text">
+    </form>
+    </div>
+
+    <div id="photo-div-container">
+
+    </div>
+
+    <script>
+        clearSearchBar();
+        var searchForm = document.querySelector("#search-form");
+        searchForm.addEventListener('submit', function(e){
+            e.preventDefault();
+            hideBg();
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                // Typical action to be performed when the document is ready:
+                var response = JSON.parse(xhttp.responseText);
+                console.log(response.photos);
+                var photoData = response.photos.map(function(item){
+                    return item;
+                })
+                //console.log (photoData)
+
+            var container = document.querySelector('#photo-div-container');
+            container.innerHTML='';
+             photoData.forEach(photo => {
+                //console.log(photo);
+                var photoDiv = document.createElement('div');
+                photoDiv.classList.add("photo-div");
+                photoDiv.innerHTML = `
+                <img id="result-image" src = ${photo.src.large}>
+                <h5 id="credit"> 📷 ${photo.photographer}</h5>
+                
+                `;
+
+            container.appendChild(photoDiv);               
+              });
+                }
+            };
+            var textValue = document.querySelector('#search-bar').value;
+            xhttp.open("GET", `https://api.pexels.com/v1/search?query=${textValue}`, true);
+            xhttp.setRequestHeader ('Authorization', "563492ad6f9170000100000125716557f66c42f5b1714688e15ee524");
+            xhttp.send();
+
+        });
+
+        function clearSearchBar (){
+            document.querySelector('#search-bar').value ="";
+        }
+
+        function hideBg() {
+            document.querySelector('.hero-image').style.cssText="display:none";
+            document.querySelector('#logo').style.cssText="transform:none";
+            document.querySelector('#search-form').style.cssText="transform:none";
+            document.querySelector('.top').style.cssText="border-bottom: 1px solid lightgray";
+        }
+        
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+</body>
+</html>
