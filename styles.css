@@ -116,7 +116,7 @@ img, .credit {
         height: 40px;
     }
     #credit {
-        font-size: small;
+        font-size: x-small;
     }
   }
 
@@ -144,6 +144,6 @@ img, .credit {
     }
 
     #credit {
-        font-size:x-small;
+        font-size:small;
     }
   }
