@@ -121,7 +121,7 @@ img, .credit {
   }
 
 
-@media (max-width: 412px) {
+@media (max-width: 428px) {
   .hero-text {
     width:70%;
 }
