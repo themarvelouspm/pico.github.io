@@ -120,6 +120,14 @@ img, .credit {
     }
   }
 
+
+@media (max-width: 412px) {
+  .hero-text {
+    width:70%;
+}
+}
+
+
   @media (max-width: 375px) {
     *{
         max-height: fit-content;
@@ -133,6 +141,9 @@ img, .credit {
 
 .photo-div {
       flex: 100%;
+    }
+    .hero-text {
+        width:60%;
     }
 
     .hero-text h1 {
