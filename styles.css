@@ -46,7 +46,7 @@
 }
 
 #credit{
-    transform: translateY(-30px);
+    transform: translateY(-25px);
     color: white;
     z-index: 0;
     text-shadow: 1px 1px 2px black, 0 0 10px rgb(7, 7, 7), 0 0 2px rgb(0, 0, 0);
