@@ -118,6 +118,7 @@ img, .credit {
     }
     #credit {
         font-size: x-small;
+        transform: translateY(-15px);
     }
   }
 
